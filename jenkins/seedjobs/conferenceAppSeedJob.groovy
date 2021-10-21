@@ -1,4 +1,4 @@
-def gitUrl = 'https://github.com/codecentric/conference-app'
+def gitUrl = 'https://github.com/romancin/conference-app'
 
 createCiJob("conference-app", gitUrl, "app/pom.xml")
 createSonarJob("conference-app", gitUrl, "app/pom.xml")
@@ -87,7 +87,7 @@ def createSonarJob(def jobName, def gitUrl, def pomFile) {
     }
     steps {
       maven {
-        goals('org.jacoco:jacoco-maven-plugin:0.7.4.201502262128:prepare-agent install -Psonar')
+        goals('org.jacoco:jacoco-maven-plugin:0.8.7:prepare-agent install -Psonar')
         mavenInstallation('Maven 3.3.3')
         rootPOM(pomFile)
         mavenOpts('-Xms512m -Xmx1024m')
